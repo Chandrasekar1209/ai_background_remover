@@ -1,0 +1,6 @@
+fastapi==0.95.2
+celery==5.3.1
+redis==4.5.5
+python-multipart==0.0.6
+uvicorn==0.22.0
+pillow==9.5.0
