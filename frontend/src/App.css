@@ -1,0 +1,53 @@
+/* frontend/src/App.css */
+.App {
+  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.preview-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.preview-section {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.preview-image {
+  max-width: 500px;
+  max-height: 400px;
+  border: 1px solid #ddd;
+}
+
+.controls {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.loading {
+  margin: 1rem 0;
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.download-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.color-picker, .custom-bg {
+  margin: 1rem 0;
+}
