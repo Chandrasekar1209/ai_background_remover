@@ -1,12 +1,19 @@
-FROM python:3.9-slim
+FROM python:3.9
+
 WORKDIR /app
 
-# Copy requirements.txt first to leverage Docker's caching mechanism
+# Install system dependencies for OpenCV
+RUN apt-get update && apt-get install -y libglib2.0-0 libsm6 libxext6 libxrender-dev && rm -rf /var/lib/apt/lists/*
+
+# Install NumPy <2 first (before any dependencies)
+RUN pip install "numpy<2"
+
+# Copy and install dependencies
 COPY ./requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy everything else from the backend folder
+# Copy the rest of the app
 COPY ./ .   
-# This will copy everything from the build context to the Docker image
 
+# Start the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
