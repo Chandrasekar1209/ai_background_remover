@@ -1,6 +1,6 @@
 # backend/app/routes/api_v1.py
 from fastapi import APIRouter, UploadFile, File
-from ...tasks.celery_tasks import process_image
+from app.tasks.celery_tasks import process_image
 
 router = APIRouter()
 
