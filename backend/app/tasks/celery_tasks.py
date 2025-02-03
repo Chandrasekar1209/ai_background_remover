@@ -11,7 +11,7 @@ def process_image(filename):
     # Load AI model
     model = UNet()
     model.load_state_dict(torch.load("ai_model/weights/model_weights.pth"))
-    
+    print("Model loaded.")
     # Process image
     img = cv2.imread(f"temp_uploads/{filename}")
     mask = model(torch.tensor(img).permute(2,0,1).unsqueeze(0))

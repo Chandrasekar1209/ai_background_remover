@@ -1,4 +1,3 @@
-// frontend/src/services/api.js
 import axios from 'axios';
 
 const api = axios.create({
@@ -8,5 +7,10 @@ const api = axios.create({
 export const uploadImage = (file) => {
   const formData = new FormData();
   formData.append('file', file);
-  return api.post('/upload', formData);
+
+  return api.post('/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 };

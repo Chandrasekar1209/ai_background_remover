@@ -13,14 +13,16 @@ services:
 
   frontend:
     build:
-      context: ./frontend  # Explicitly define context
-      dockerfile: Dockerfile  # Define the Dockerfile path if needed
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
       - ./frontend:/app
+      - /app/node_modules  # Prevents conflicts with host's node_modules
     environment:
-      - REACT_APP_API_URL=http://localhost:8000
+      - REACT_APP_API_URL=http://localhost:8000/api/v1/
+    command: npm start  # 🚀 Add this to start the app
 
   redis:
     image: redis:alpine
